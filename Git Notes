@@ -1,0 +1,109 @@
+From Code Academy
+git init
+    The word init means initialize. The command sets up all the tools Git needs to begin tracking changes made to the project.
+
+Git Workflow
+Nice! We have a Git project. A Git project can be thought of as having three parts:
+
+A Working Directory: where you'll be doing all the work: creating, editing, deleting and organizing files
+A Staging Area: where you'll list changes you make to the working directory
+A Repository: where Git permanently stores those changes as different versions of the project
+The Git workflow consists of editing files in the working directory, adding files to the staging area, and saving changes to a Git repository. In Git, we save changes with a commit, which we will learn more about in this lesson.
+
+git status
+As you write the screenplay, you will be changing the contents of the working directory. You can check the status of those changes with:
+
+git add
+In order for Git to start tracking scene-1.txt, the file needs to be added to the staging area.
+
+We can add a file to the staging area with:
+
+git add filename
+The word filename here refers to the name of the file you are editing, such as scene-1.txt.
+
+Then check git status again
+
+git diff
+Good work! Now you know how to add a file to the staging area.
+
+Imagine that we type another line in scene-1.txt. Since the file is tracked, we can check the differences between the working directory and the staging area with:
+
+git diff filename
+Here, filename is the actual name of the file. If the name of my file was changes.txt the command would be
+
+git diff changes.txt
+
+git commit
+A commit is the last step in our Git workflow. A commit permanently stores changes from the staging area inside the repository.
+
+git commit is the command we'll do next. However, one more bit of code is needed for a commit: the option -m followed by a message. Here's an example:
+
+git commit -m "Complete first line of dialogue"
+
+Standard Conventions for Commit Messages:
+
+Must be in quotation marks
+Written in the present tense
+Should be brief (50 characters or less) when using -m
+
+git log
+Often with Git, you'll need to refer back to an earlier version of a project. Commits are stored chronologically in the repository and can be viewed with:
+
+git log
+
+1.
+From the terminal, log a list of your commits.
+
+In the output, notice:
+
+A 40-character code, called a SHA, that uniquely identifies the commit. This appears in orange text.
+The commit author (you!)
+The date and time of the commit
+The commit message
+Click "Next" to continue.
+
+Generalizations
+You have now been introduced to the fundamental Git workflow. You learned a lot! Let's take a moment to generalize:
+
+Git is the industry-standard version control system for web developers
+Use Git commands to help keep track of changes made to a project:
+git init creates a new Git repository
+git status inspects the contents of the working directory and staging area
+git add adds files from the working directory to the staging area
+git diff shows the difference between the working directory and the staging area
+git commit permanently stores file changes from the staging area in the repository
+git log shows a list of all previous commits
+
+Backtracking Intro
+When working on a Git project, sometimes we make changes that we want to get rid of. Git offers a few eraser-like features that allow us to undo mistakes during project creation. In this lesson, we'll learn some of these features.
+
+To start out, let's review the basic Git workflow.
+
+head commit
+In Git, the commit you are currently on is known as the HEAD commit. In many cases, the most recently made commit is the HEAD commit.
+
+To see the HEAD commit, enter:
+
+git show HEAD
+The output of this command will display everything the git log command displays for the HEAD commit, plus all the file changes that were committed.
+
+git checkout
+What if you decide to change the ghost's line in the working directory, but then decide you wanted to discard that change?
+
+You could rewrite the line how it was originally, but what if you forgot the exact wording? The command
+
+git checkout HEAD filename
+will restore the file in your working directory to look exactly as it did when you last made a commit.
+
+Here, filename again is the actual name of the file. If the file is named changes.txt, the command would be
+
+git checkout HEAD changes.txt
+
+more git add
+The hamlet repository we are working on contains five files. In Git, it's common to change many files, add those files to the staging area, and commit them to a repository in a single commit.
+
+For example, say you want to change the character "LARRY" to "LAERTES" in the script. The name currently appears in two files. After you change the name in both files, you could add the changed files to the staging area with:
+
+git add filename_1 filename_2
+Note the word filename above refers to the name of the file you are adding to the staging area, such as scene-3.txt.
+
